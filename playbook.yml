@@ -39,3 +39,10 @@
   - name: Stop IPtables
     service: name=iptables state=stopped
 
+  - name: Copy artidacts from NEXUS
+    get_url:
+      url: http://18.218.174.206:8081/nexus/service/local/repositories/ansible/content/dev/gol/{{BUILD_ID}}-{{BUILD_TIMESTAMP}}/{{artifact_id}}-{{my_version}}.war
+      dest: /usr/share/tomcat/webapps/
+      
+      
+    
