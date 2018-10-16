@@ -3,9 +3,9 @@
   become: true
   tasks:
   
-  - name: Install epel, JDK & Tomcat 
+  - name: Install JDK
     yum: name=java-1.8.0-openjdk state=present update_cache=yes
-      
+            
   - name: Install EPEL repo.
     yum:
       name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm
@@ -14,9 +14,8 @@
   - name: Install tomcat
     yum: name=tomcat state=present update_cache=yes
 
-
   - name: Install tomcat webapps
-    yum: name=tomcat-webapps 
+    yum: name=tomcat-webapps state=present
 
   - name: Install tomcat admin-webapps
     yum: 
