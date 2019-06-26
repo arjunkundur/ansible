@@ -20,8 +20,8 @@
 
   - name: Install tomcat admin-webapps
     yum: 
-      name=tomcat-admin-webapps 
-      state=present
+      name: tomcat-admin-webapps 
+      state: present
 
   - name: Delete tomcat-users.xml
     file:
@@ -35,9 +35,6 @@
 
   - name: Restart tomcat
     service: name=tomcat state=restarted
-
-  - name: Stop IPtables
-    service: name=iptables state=stopped
 
   - name: Copy artidacts from NEXUS
     get_url:
